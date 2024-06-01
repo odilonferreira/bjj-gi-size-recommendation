@@ -15,8 +15,22 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-  height: z.string().min(1).max(3),
-  weight: z.string().min(1).max(3),
+  height: z
+    .string()
+    .min(1, "Altura deve ter menos menos 1 caracter")
+    .max(3, "Altura deve ter até 3 caracteres")
+    .refine(
+      (value) => Number(value) <= 215,
+      "Altura deve ser no máximo de 215 centímetros"
+    ),
+  weight: z
+    .string()
+    .min(1, "Peso deve ter pelo menos 1 caracter")
+    .max(3, "Peso deve ter até 3 caracteres")
+    .refine(
+      (value) => Number(value) <= 150,
+      "Peso deve ser no máximo 150 kilos"
+    ),
 });
 
 export type RecommendationFormSchema = z.infer<typeof formSchema>;
@@ -53,6 +67,7 @@ const RecommendationForm = ({ onSubmit }: Props) => {
                     <Input
                       placeholder="Digite sua altura em centímetros"
                       type="number"
+                      min={0}
                       {...field}
                     />
                   </FormControl>
@@ -72,6 +87,7 @@ const RecommendationForm = ({ onSubmit }: Props) => {
                     <Input
                       placeholder="Digite seu peso em kilos"
                       type="number"
+                      min={0}
                       {...field}
                     />
                   </FormControl>

@@ -11,7 +11,7 @@ export default function Home() {
                 Recomendação de tamanho de kimono
               </h1>
               <p className="text-gray-500 dark:text-gray-400">
-                Encontre o tamanho perfeito do seu quimono com base na sua
+                Encontre o tamanho perfeito do seu kimono com base na sua
                 altura e peso.
               </p>
             </div>
@@ -19,7 +19,7 @@ export default function Home() {
           <RecommendationWrapper />
           <p className="mt-4 text-gray-500 dark:text-gray-400">
             Observe que o tamanho recomendado pode variar dependendo da marca e
-            estilo específico do quimono.
+            estilo específico do kimono.
           </p>
         </div>
       </div>

@@ -13,7 +13,6 @@ const RecommendationWrapper = () => {
     formValues: RecommendationFormSchema
   ) => {
     const size = findBestKimonoSize(formValues.height, formValues.weight);
-    console.log(size);
     setSize(size);
   };
 

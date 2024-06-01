@@ -17,6 +17,6 @@ export const KimonoSizes = {
   },
   5: {
     height: [191, 215],
-    weight: [91, 110],
+    weight: [91, 150],
   },
 };
