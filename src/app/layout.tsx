@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import type { Metadata } from "next";
+
 import { Inter } from "next/font/google";
 
 import "./globals.css";
@@ -23,6 +25,7 @@ export default function RootLayout({
       <body className={cn(inter.variable, "w-screen h-screen")}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
       <GoogleAnalytics gaId={`${process.env.GA_MEASUREMENT_ID}`} />
     </html>
