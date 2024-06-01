@@ -22,6 +22,10 @@ const formSchema = z.object({
     .refine(
       (value) => Number(value) <= 215,
       "Altura deve ser no máximo de 215 centímetros"
+    )
+    .refine(
+      (value) => Number(value) > 0,
+      "Altura deve ser maior que 0 centímetros"
     ),
   weight: z
     .string()
@@ -30,7 +34,8 @@ const formSchema = z.object({
     .refine(
       (value) => Number(value) <= 150,
       "Peso deve ser no máximo 150 kilos"
-    ),
+    )
+    .refine((value) => Number(value) > 0, "Peso deve ser maior que 0 kilos"),
 });
 
 export type RecommendationFormSchema = z.infer<typeof formSchema>;
@@ -67,7 +72,6 @@ const RecommendationForm = ({ onSubmit }: Props) => {
                     <Input
                       placeholder="Digite sua altura em centímetros"
                       type="number"
-                      min={0}
                       {...field}
                     />
                   </FormControl>
@@ -87,7 +91,6 @@ const RecommendationForm = ({ onSubmit }: Props) => {
                     <Input
                       placeholder="Digite seu peso em kilos"
                       type="number"
-                      min={0}
                       {...field}
                     />
                   </FormControl>
